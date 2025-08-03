@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           
+                background-color: khaki;
+                display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+                
+        }
+        h1{
+           color: rgb(122, 112, 28);
+           text-align: center;
+           font-style: initial;
+           font-size: 70px;
+
+        }
+        #inputtype{
+            color: rgb(155, 144, 47);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 700px;
+            height: 40px;
+            background-color: rgb(237, 234, 203);
+            font-size: 20px;
+            margin: 20px;
+        }
+       #list{
+        background-color: rgb(228, 224, 180);
+        color: rgb(127, 117, 30);
+        width: 650px;
+       }
+       #submit{
+        background-color: rgb(138, 128, 37);
+        width: 70px;
+        height: 30px;
+        
+        
+       }
+       #list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-size: 20px;
+            border-bottom: 1px solid #999;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Daily Rotinue</h1>
+    <input type="text" id="inputtype" placeholder="Add here....">
+    <button id="submit" onclick="add()">Submit</button>
+    <ul id="list"></ul>
+    <script>
+function add()
+{
+   let inputtext=document.getElementById("inputtype");
+   let input=inputtext.value;
+
+   if(input=="") return;
+
+   let li=document.createElement("li");
+   li.innerText=input;
+
+   let del=document.createElement("button");
+   del.innerText="x";
+  del.style.backgroundColor=" rgb(237, 234, 203)";
+  del.style.color="rgb(127, 117, 30)";
+  del.style.marginRight = "50px";
+   del.onclick=function(){
+    li.remove();
+   };
+   li.appendChild(del);
+   document.getElementById("list").appendChild(li);
+   inputtext.value="";
+}
+    </script>
+</body>
